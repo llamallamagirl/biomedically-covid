@@ -1,29 +1,30 @@
 // @flow
 
 import React from "react";
-// import logo from './logo.svg';
-// import './App.css';
-import { Col, Container, Row } from "react-bootstrap";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCheck, faMinus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faCircle,
+  faMinus,
+  faQuestion,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
-import Header from "./components/Header";
-import Intervention from "./components/Intervention";
-import { interventions } from "./data";
+import Home from "./Home";
 
-library.add(faCheck, faMinus, faTimes);
+library.add(faCheck, faCircle, faMinus, faQuestion, faTimes);
 
 const App = () => {
   return (
-    <Container>
-      <Header />
-      <Row>
-        {interventions.map((i) => (
-          <Col key={i.id} sm={6}>
-            <Intervention {...i} />
-          </Col>
-        ))}
-      </Row>
+    <Container style={{ minHeight: "1000px" }}>
+      <Router>
+        <Route path="/:ccId" component={Home} />
+        <Route exact path="/">
+          <Redirect to="/1" />
+        </Route>
+      </Router>
     </Container>
   );
 };
