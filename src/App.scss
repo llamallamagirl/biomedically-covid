@@ -1,0 +1,27 @@
+$blue: #6f42c1;
+
+.modal-90w {
+  max-width: 100% !important;
+}
+
+.vh100 {
+  height: 100vh !important;
+}
+
+$blue: #375a7f;
+$red: #f54749;
+$orange: #f38630;
+$green: #52b679;
+$teal: #20c997 !default;
+$cyan: #3498db;
+
+$primary: $cyan !default;
+$success: $green !default;
+$info: $teal !default;
+$warning: $orange;
+$danger: $red !default;
+
+$font-family-base: "EB Garamond", "Times New Roman", Arial, monospace;
+$font-size-base: 1.125rem !default;
+
+@import "../node_modules/bootstrap/scss/bootstrap";

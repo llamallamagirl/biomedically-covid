@@ -2,21 +2,11 @@
 
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faCheck,
-  faCircle,
-  faMinus,
-  faQuestion,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
 
 import ClinicalCourse from "./components/ClinicalCourse";
 import Header from "./components/Header";
 import Intervention from "./components/Intervention";
 import { interventions } from "./data";
-
-library.add(faCheck, faCircle, faMinus, faQuestion, faTimes);
 
 const Home = ({ history, match }) => {
   const ccId = parseInt(match.params.ccId);

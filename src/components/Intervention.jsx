@@ -2,7 +2,9 @@
 
 import React from "react";
 import { Card } from "react-bootstrap";
-import EvidenceTypeRow from "./EvidenceTypeRow";
+
+import { EvidenceTypeBadge } from "./EvidenceTypeWidgets";
+import InterventionDetail from "./InterventionDetail";
 import { EvidenceTypes } from "../data";
 
 type InterventionProps = {
@@ -16,12 +18,14 @@ const Intervention = (props: InterventionProps) => {
   return (
     <Card className="h-100">
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>
+          {name} <InterventionDetail {...props} />
+        </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
       </Card.Body>
       <Card.Footer>
         {Object.entries(evidenceTypes).map(([key, value]) => (
-          <EvidenceTypeRow {...value} key={key} />
+          <EvidenceTypeBadge {...value} key={key} />
         ))}
       </Card.Footer>
     </Card>

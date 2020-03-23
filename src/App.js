@@ -12,6 +12,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
+import "./App.scss";
 import Home from "./Home";
 
 library.add(faCheck, faCircle, faMinus, faQuestion, faTimes);

@@ -28,23 +28,69 @@ export const interventions = [
     description:
       "Has immunosuppressive, antiautophagy, and antimalarial activities.",
     evidenceTypes: {
-      MoA: { name: "MoA", icon: "check" },
-      InVitro: { name: "In Vitro", icon: "check" },
+      MoA: {
+        name: "MoA",
+        icon: "check",
+        evidence: [
+          {
+            icon: "check",
+            url:
+              "https://www.sciencedirect.com/science/article/pii/S0924857920300959?via%3Dihub",
+            title:
+              "Aminoquinolines Against Coronavirus Disease 2019 (COVID-19): Chloroquine or Hydroxychloroquine",
+          },
+        ],
+      },
+      InVitro: {
+        name: "In Vitro",
+        icon: "check",
+        evidence: [
+          {
+            icon: "check",
+            url:
+              "https://academic.oup.com/cid/advance-article/doi/10.1093/cid/ciaa237/5801998",
+            title:
+              "In Vitro Antiviral Activity and Projection of Optimized Dosing Design of Hydroxychloroquine for the Treatment of Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2)",
+          },
+        ],
+      },
       InVivo: { name: "In Vivo", icon: "question" },
-      Human: { name: "Human", icon: "question" },
+      Human: {
+        name: "Human",
+        icon: "question",
+        evidence: [
+          {
+            url:
+              "https://www.sciencedirect.com/science/article/pii/S0924857920300996?via%3Dihub",
+            title:
+              "Hydroxychloroquine and azithromycin as a treatment of COVID-19: results of an open-label non-randomized clinical trial",
+          },
+        ],
+      },
     },
     stages: [4, 5],
   },
   {
     id: 2,
-    name: "Remdesivir",
+    name: "Lopinavir–Ritonavir",
     description:
       "An investigational nucleotide analog with broad-spectrum antiviral activity.",
     evidenceTypes: {
       MoA: { name: "MoA", icon: "check" },
       InVitro: { name: "In Vitro", icon: "check" },
       InVivo: { name: "In Vivo", icon: "minus" },
-      Human: { name: "Human", icon: "times" },
+      Human: {
+        name: "Human",
+        icon: "times",
+        evidence: [
+          {
+            icon: "times",
+            url: "https://www.nejm.org/doi/10.1056/NEJMoa2001282",
+            title:
+              "A Trial of Lopinavir–Ritonavir in Adults Hospitalized with Severe Covid-19",
+          },
+        ],
+      },
     },
     stages: [3, 4, 5],
   },
