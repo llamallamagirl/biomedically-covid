@@ -41,7 +41,7 @@ export const EvidenceTypeRow = (props: EvidenceType) => {
 
 export const EvidenceTypeBadge = (props: EvidenceType) => {
   const { icon, name } = props;
-  return (
+  return icon ? (
     <Badge className="mr-1" variant="secondary">
       {name}{" "}
       <FontAwesomeIcon
@@ -50,5 +50,5 @@ export const EvidenceTypeBadge = (props: EvidenceType) => {
         style={{ height: "unset" }}
       />
     </Badge>
-  );
+  ) : null;
 };
