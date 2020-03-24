@@ -1,30 +1,42 @@
 // @flow
 
 import React from "react";
-import { Accordion, Badge, Card } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { EvidenceType } from "../data";
 
 export const EvidenceTypeRow = (props: EvidenceType) => {
-  const { eventKey, evidence, icon, name } = props;
-  return (
-    <Card>
-      <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
-        {name} ({(evidence || []).length})
-      </Accordion.Toggle>
-      <Accordion.Collapse eventKey={eventKey}>
-        <Card.Body>
-          {(evidence || []).map(({ url, title }) => (
-            <div>
-              <FontAwesomeIcon className="mr-2" icon={icon} size="md" />
-              <a href={url}>{title}</a>
-            </div>
-          ))}
-        </Card.Body>
-      </Accordion.Collapse>
-    </Card>
-  );
+  const { evidence, name } = props;
+  return (evidence || []).map(({ certaintyIcon, icon, url, title }) => (
+    <tr>
+      <td className="text-center">
+        <FontAwesomeIcon
+          className="text-primary"
+          icon={["fal", icon]}
+          size="lg"
+        />
+      </td>
+      <td className="text-center">
+        <span className="fa-layers fa-fw">
+          <FontAwesomeIcon
+            className="text-light"
+            icon={["fal", "signal"]}
+            size="lg"
+          />
+          <FontAwesomeIcon
+            className="text-primary"
+            icon={["fal", certaintyIcon || "signal-slash"]}
+            size="lg"
+          />
+        </span>
+      </td>
+      <td>{name}</td>
+      <td>
+        <a href={url}>{title}</a>
+      </td>
+    </tr>
+  ));
 };
 
 export const EvidenceTypeBadge = (props: EvidenceType) => {
@@ -32,7 +44,11 @@ export const EvidenceTypeBadge = (props: EvidenceType) => {
   return (
     <Badge className="mr-1" variant="secondary">
       {name}{" "}
-      <FontAwesomeIcon icon={icon} size="xs" style={{ height: "unset" }} />
+      <FontAwesomeIcon
+        icon={["fal", icon]}
+        size="xs"
+        style={{ height: "unset" }}
+      />
     </Badge>
   );
 };

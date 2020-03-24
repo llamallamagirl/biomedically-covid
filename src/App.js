@@ -4,18 +4,37 @@ import React from "react";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
+
 import {
   faCheck,
   faCircle,
   faMinus,
   faQuestion,
+  faSignal1,
+  faSignal2,
+  faSignal3,
+  faSignal4,
+  faSignal,
+  faSignalSlash,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/pro-light-svg-icons";
 
 import "./App.scss";
 import Home from "./Home";
 
-library.add(faCheck, faCircle, faMinus, faQuestion, faTimes);
+library.add(
+  faCheck,
+  faCircle,
+  faMinus,
+  faQuestion,
+  faSignal1,
+  faSignal2,
+  faSignal3,
+  faSignal4,
+  faSignal,
+  faSignalSlash,
+  faTimes
+);
 
 const App = () => {
   return (

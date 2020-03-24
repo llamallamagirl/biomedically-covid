@@ -12,14 +12,16 @@ $blue: #375a7f;
 $red: #f54749;
 $orange: #f38630;
 $green: #52b679;
-$teal: #20c997 !default;
+$teal: #20c997;
 $cyan: #3498db;
+$gray-300: #dee2e6;
 
-$primary: $cyan !default;
-$success: $green !default;
-$info: $teal !default;
+$primary: $cyan;
+$success: $green;
+$info: $teal;
 $warning: $orange;
-$danger: $red !default;
+$danger: $red;
+$light: $gray-300;
 
 $font-family-base: "EB Garamond", "Times New Roman", Arial, monospace;
 $font-size-base: 1.125rem !default;

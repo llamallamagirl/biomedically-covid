@@ -57,9 +57,11 @@ export const interventions = [
       InVivo: { name: "In Vivo", icon: "question" },
       Human: {
         name: "Human",
-        icon: "question",
+        icon: "check",
         evidence: [
           {
+            certaintyIcon: "signal-2",
+            icon: "check",
             url:
               "https://www.sciencedirect.com/science/article/pii/S0924857920300996?via%3Dihub",
             title:
@@ -84,6 +86,7 @@ export const interventions = [
         icon: "times",
         evidence: [
           {
+            certaintyIcon: "signal-5",
             icon: "times",
             url: "https://www.nejm.org/doi/10.1056/NEJMoa2001282",
             title:
@@ -155,7 +158,20 @@ export const interventions = [
       MoA: { name: "MoA", icon: "check" },
       InVitro: { name: "In Vitro", icon: "check" },
       InVivo: { name: "In Vivo", icon: "minus" },
-      Human: { name: "Human", icon: "times" },
+      Human: {
+        name: "Human",
+        icon: "times",
+        evidence: [
+          {
+            icon: "check",
+            certaintyIcon: "signal-1",
+            url:
+              "https://www.sciencedirect.com/science/article/pii/S0924857920300996?via%3Dihub",
+            title:
+              "Hydroxychloroquine and azithromycin as a treatment of COVID-19: results of an open-label non-randomized clinical trial",
+          },
+        ],
+      },
     },
     stages: [2, 3, 4, 5],
   },

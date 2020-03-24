@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Accordion, Button, Container, Modal } from "react-bootstrap";
+import { Button, Container, Modal, Table } from "react-bootstrap";
 import { faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { EvidenceTypeRow } from "./EvidenceTypeWidgets";
@@ -41,12 +41,21 @@ const InterventionDetail = (props: InterventionProps) => {
           <Modal.Body>
             <h2>{name}</h2>
             <p>{description}</p>
-            <h5>Evidence</h5>
-            <Accordion defaultActiveKey="1">
-              {Object.entries(evidenceTypes).map(([key, value]) => (
-                <EvidenceTypeRow {...value} eventKey={key} key={key} />
-              ))}
-            </Accordion>
+            <Table>
+              <thead>
+                <tr>
+                  <th className="text-center">Efficacy</th>
+                  <th className="text-center">Confidence</th>
+                  <th>Type</th>
+                  <th>Study</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(evidenceTypes).map(([key, value]) => (
+                  <EvidenceTypeRow {...value} eventKey={key} key={key} />
+                ))}
+              </tbody>
+            </Table>
           </Modal.Body>
         </Container>
       </Modal>
