@@ -4,14 +4,14 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { interventionTypes } from "../data";
 
-type ClinicalCourseProps = {
+type FilterBarProps = {
   goTo: func,
   selected: number,
 };
 
 const isSelected = (selected, c) => selected === c.id;
 
-const ClinicalCourse = (props: ClinicalCourseProps) => {
+const FilterBar = (props: FilterBarProps) => {
   const { goTo, selected } = props;
   return (
     <Row className="pb-4 mx-0">
@@ -32,4 +32,4 @@ const ClinicalCourse = (props: ClinicalCourseProps) => {
   );
 };
 
-export default ClinicalCourse;
+export default FilterBar;

@@ -1,9 +1,8 @@
 // @flow
 
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { EvidenceTypeBadge } from "./EvidenceTypeWidgets";
 import InterventionDetail from "./InterventionDetail";
 import { EvidenceTypes } from "../data";
 
@@ -15,20 +14,24 @@ type InterventionProps = {
 
 const Intervention = (props: InterventionProps) => {
   const { description, evidenceTypes, name } = props;
+  const [show, setShow] = useState(false);
+
   return (
-    <Card className="h-100">
-      <Card.Body>
-        <Card.Title>
-          {name} <InterventionDetail {...props} />
-        </Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{description}</Card.Subtitle>
-      </Card.Body>
-      <Card.Footer>
-        {Object.entries(evidenceTypes).map(([key, value]) => (
-          <EvidenceTypeBadge {...value} key={key} />
-        ))}
-      </Card.Footer>
-    </Card>
+    <tr onClick={() => setShow(!show)}>
+      <td>
+        <h5 className="mb-0">
+          {name} <InterventionDetail {...props} setShow={setShow} show={show} />
+        </h5>
+        <small>{description}</small>
+      </td>
+      {Object.entries(evidenceTypes).map(([key, value]) => (
+        <td className="text-center align-middle" key={key}>
+          {value.icon && (
+            <FontAwesomeIcon icon={["fal", value.icon]} size="lg" />
+          )}
+        </td>
+      ))}
+    </tr>
   );
 };
 

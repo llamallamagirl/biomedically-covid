@@ -1,12 +1,14 @@
-export interface EvidenceTypes {
-  MoA: object;
-  InVitro: object;
-  InVivo: object;
-  Human: object;
+export interface EvidenceType {
+  name: string;
+  evidence: array;
+  icon: string;
 }
 
-export interface EvidenceType {
-  icon: string;
+export interface EvidenceTypes {
+  MoA: EvidenceType;
+  InVitro: EvidenceType;
+  InVivo: EvidenceType;
+  Human: EvidenceType;
 }
 
 export const interventionTypes = [
@@ -85,7 +87,7 @@ export const interventions = [
         icon: "times",
         evidence: [
           {
-            certaintyIcon: "signal-5",
+            certaintyIcon: "signal",
             icon: "times",
             url: "https://www.nejm.org/doi/10.1056/NEJMoa2001282",
             title:
@@ -103,7 +105,7 @@ export const interventions = [
       "Role in including vasodilation, inflammation, and neurotransmission.",
     evidenceTypes: {
       MoA: { name: "MoA", icon: null },
-      IndirectInVitro: {
+      InVitro: {
         name: "In Vitro (indirect)",
         icon: "check",
         evidence: [
@@ -116,7 +118,7 @@ export const interventions = [
         ],
       },
       InVivo: { name: "In Vivo", icon: null },
-      IndirectHuman: {
+      Human: {
         name: "Human (indirect)",
         icon: "check",
         evidence: [
@@ -129,7 +131,6 @@ export const interventions = [
           },
         ],
       },
-      Human: { name: "Human", icon: null },
     },
     stages: [2, 3],
   },
@@ -157,7 +158,7 @@ export const interventions = [
       InVivo: { name: "In Vivo", icon: null },
       Human: {
         name: "Human",
-        icon: "question",
+        icon: "question-circle",
         evidence: [
           {
             icon: "check",
@@ -203,7 +204,7 @@ export const interventions = [
       InVivo: { name: "In Vivo", icon: null },
       Human: {
         name: "Human",
-        icon: "question",
+        icon: "question-circle",
         evidence: [
           {
             icon: "check",
@@ -451,7 +452,7 @@ export const interventions = [
     evidenceTypes: {
       MoA: { name: "MoA", icon: null },
       InVitro: { name: "In Vitro", icon: null },
-      IndirectInVivo: {
+      InVivo: {
         name: "In Vivo (indirect)",
         icon: "check",
         evidence: [
@@ -475,7 +476,7 @@ export const interventions = [
     evidenceTypes: {
       MoA: { name: "MoA", icon: null },
       InVitro: { name: "In Vitro", icon: null },
-      IndirectInVivo: {
+      InVivo: {
         name: "In Vivo (indirect)",
         icon: "check",
         evidence: [

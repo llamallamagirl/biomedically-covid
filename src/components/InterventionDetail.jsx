@@ -1,26 +1,26 @@
 // @flow
 
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal, Table } from "react-bootstrap";
-import { faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { EvidenceTypeRow } from "./EvidenceTypeWidgets";
-import { InterventionProps } from "./Intervention";
 
-const InterventionDetail = (props: InterventionProps) => {
-  const [show, setShow] = useState(false);
-  const { description, evidenceTypes, name } = props;
+type InterventionDetailProps = {
+  description: string,
+  evidenceTypes: EvidenceTypes,
+  name: string,
+  setShow: func,
+  show: boolean,
+};
+
+const InterventionDetail = (props: InterventionDetailProps) => {
+  const { description, evidenceTypes, name, setShow, show } = props;
+  const ets = Object.entries(evidenceTypes).map(([key, value]) => (
+    <EvidenceTypeRow {...value} key={key} />
+  ));
   return (
     <>
-      <Button
-        className="px-0 pb-1 pt-0"
-        variant="link"
-        onClick={() => setShow(true)}
-      >
-        <FontAwesomeIcon icon={faExpand} size="sm" />
-      </Button>
-
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -32,9 +32,9 @@ const InterventionDetail = (props: InterventionProps) => {
           onClick={() => setShow(false)}
         >
           <FontAwesomeIcon
-            className="text-secondary"
-            icon={faTimes}
-            size="2x"
+            className="text-light"
+            icon={["fal", "times"]}
+            size="3x"
           />
         </Button>
         <Container className="pb-5">
@@ -48,13 +48,10 @@ const InterventionDetail = (props: InterventionProps) => {
                   <th className="text-center">Confidence</th>
                   <th>Type</th>
                   <th>Study</th>
+                  <th>Link</th>
                 </tr>
               </thead>
-              <tbody>
-                {Object.entries(evidenceTypes).map(([key, value]) => (
-                  <EvidenceTypeRow {...value} eventKey={key} key={key} />
-                ))}
-              </tbody>
+              <tbody>{ets}</tbody>
             </Table>
           </Modal.Body>
         </Container>
