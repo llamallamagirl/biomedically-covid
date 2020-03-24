@@ -110,7 +110,7 @@ export const interventions = [
         icon: "check",
         evidence: [
           {
-            icon: "times",
+            icon: "check",
             url: "https://jvi.asm.org/content/79/3/1966",
             title:
               "Nitric Oxide Inhibits the Replication Cycle of Severe Acute Respiratory Syndrome Coronavirus",

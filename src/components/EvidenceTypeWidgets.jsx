@@ -1,6 +1,7 @@
 // @flow
 
 import React from "react";
+import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLink } from "@fortawesome/pro-light-svg-icons";
 
@@ -40,7 +41,9 @@ export const EvidenceTypeRow = (props: EvidenceType) => {
           <Icon icon={certaintyIcon} />
         </span>
       </td>
-      <td className="text-nowrap align-middle">{name}</td>
+      <td className="text-center align-middle">
+        <Badge variant="secondary">{name}</Badge>
+      </td>
       <td>{title}</td>
       <td className="text-center align-middle">
         <a href={url}>

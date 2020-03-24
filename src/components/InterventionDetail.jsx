@@ -14,11 +14,31 @@ type InterventionDetailProps = {
   show: boolean,
 };
 
+const EvidenceTable = ({ rows }) =>
+  rows.filter((r) => r || r.length > 1).length > 1 ? (
+    <Table>
+      <thead>
+        <tr>
+          <th className="text-center">Efficacy</th>
+          <th className="text-center">Confidence</th>
+          <th className="text-center">Type</th>
+          <th>Study</th>
+          <th className="text-center">Link</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </Table>
+  ) : null;
+
 const InterventionDetail = (props: InterventionDetailProps) => {
   const { description, evidenceTypes, name, setShow, show } = props;
-  const ets = Object.entries(evidenceTypes).map(([key, value]) => (
-    <EvidenceTypeRow {...value} key={key} />
-  ));
+  const rows = Object.values(evidenceTypes).some(
+    ({ evidence }) => evidence && evidence.length > 0
+  )
+    ? Object.entries(evidenceTypes).map(([key, value]) => (
+        <EvidenceTypeRow {...value} key={key} />
+      ))
+    : [];
   return (
     <>
       <Modal
@@ -41,18 +61,7 @@ const InterventionDetail = (props: InterventionDetailProps) => {
           <Modal.Body>
             <h2>{name}</h2>
             <p>{description}</p>
-            <Table>
-              <thead>
-                <tr>
-                  <th className="text-center">Efficacy</th>
-                  <th className="text-center">Confidence</th>
-                  <th>Type</th>
-                  <th>Study</th>
-                  <th>Link</th>
-                </tr>
-              </thead>
-              <tbody>{ets}</tbody>
-            </Table>
+            <EvidenceTable rows={rows} />
           </Modal.Body>
         </Container>
       </Modal>
